@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+.register {
+    background: -webkit-linear-gradient(right, #0bff9d, #1fa19f);
+    margin-top: 3%;
+    padding: 3%;
+}
+
+.register-left {
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+}
+
+.register-left input {
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+
+.register-right {
+    background: #f8f9fa;
+    border-top-right-radius: 10% 50%;
+    border-bottom-right-radius: 10% 50%;
+}
+
+.register-left img {
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+}
+
+.animate {
+    -webkit-animation: mover 2s infinite alternate;
+    animation: mover 1s infinite alternate;
+}
+
+@-webkit-keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+html * {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.register-left p {
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+
+.register .register-form {
+    padding: 10%;
+    margin-top: 10%;
+}
+
+.btnRegister {
+    margin-top: 5%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #1fa19f;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+
+.register .nav-tabs {
+    margin-top: 3%;
+    border: none;
+    background: #1fa19f;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+}
+
+.register .nav-tabs .nav-link {
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+
+.register .nav-tabs .nav-link:hover {
+    border: none;
+}
+
+.register .nav-tabs .nav-link.active {
+    width: 100px;
+    color: #1fa19f;
+    border: 2px solid #1fa19f;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+
+.register-heading {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #000000;
+}
+
+.dark-font {
+    color: #000000;
+}
+
+/* Dashed border */
+hr.dashed {
+    border-top: 1px dashed #bbb;
+}
+
+/* Dotted border */
+hr.dotted {
+    border-top: 1px dotted #bbb;
+}
+
+/* Solid border */
+hr.solid {
+    border-top: 1px solid #bbb;
+}
+
+/* Rounded border */
+hr.rounded {
+    border-top: 5px solid #bbb;
+    border-radius: 5px;
+}
+
+.remove-btn {
+    position: absolute;
+    left: -60px;
+    top: 0;
+}
+
+.logo{
+    width: 100%!important;
+}
+
+@media (max-width: 768px) {
+    .logo{
+        width: 75%!important;
+    }
+
+}
+
+@media (max-width: 992px) {
+
+    .register-heading {
+        color: #495057;
+    }
+}
