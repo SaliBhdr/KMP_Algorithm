@@ -1,3 +1,9 @@
+var $inputs = $('#string, #canPattern');
+
+$inputs.keyup(function(){
+    $inputs.val($(this).val());
+});
+
 var makeKMPTable = function(word) {
     if(Object.prototype.toString.call(word) == '[object String]' ) {
         word = word.split('');
@@ -56,6 +62,9 @@ var KMPSearch = function(string, word) {
 
 
 function submitForm(){
+    var el = document.getElementById('Search');
+
+    simulateClick(el);
 
     var searchString = document.getElementById("string").value;
 
@@ -74,4 +83,18 @@ function submitForm(){
 
     document.getElementById("result-output").innerHTML = result;
 
+}
+
+function simulateClick(control)
+{
+    if (document.all)
+    {
+        control.click();
+    }
+    else
+    {
+        var evObj = document.createEvent('MouseEvents');
+        evObj.initMouseEvent('click', true, true, window, 1, 12, 345, 7, 220, false, false, true, false, 0, null );
+        control.dispatchEvent(evObj);
+    }
 }

@@ -5,11 +5,37 @@
     <title>KMP Algorithm</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- css sheet for how the page is laid out -->
+
+    <link rel="stylesheet" href="css/visualizationPageStyle.css">
+
+
+    <!-- jqueury stuff.  Only used for the animation speed slider. -->
+    <link rel="stylesheet" href="js/ThirdParty/jquery-ui-1.8.11.custom.css">
+
+    <script src="js/ThirdParty/jquery-1.5.2.min.js"></script>
+    <script src="js/ThirdParty/jquery-ui-1.8.11.custom.min.js"></script>
+    <!-- Javascript for the actual visualization code -->
+    <script type = "text/javascript" src = "js/AnimationLibrary/CustomEvents.js"> </script>
+    <script type = "text/javascript" src = "js/AnimationLibrary/UndoFunctions.js"> </script>
+    <script type = "text/javascript" src = "js/AnimationLibrary/AnimatedObject.js"> </script>
+    <script type = "text/javascript" src = "js/AnimationLibrary/AnimatedLabel.js"> </script>
+    <script type = "text/javascript" src = "js/AnimationLibrary/AnimatedCircle.js"> </script>
+    <script type = "text/javascript" src = "js/AnimationLibrary/AnimatedRectangle.js"> </script>
+    <script type = "text/javascript" src = "js/AnimationLibrary/AnimatedLinkedList.js"> </script>
+    <script type = "text/javascript" src = "js/AnimationLibrary/HighlightCircle.js"> </script>
+    <script type = "text/javascript" src = "js/AnimationLibrary/Line.js"> </script>
+    <script type = "text/javascript" src = "js/AnimationLibrary/ObjectManager.js"> </script>
+    <script type = "text/javascript" src = "js/AnimationLibrary/AnimationMain.js"> </script>
+    <script type = "text/javascript" src = "js/AlgorithmLibrary/Algorithm.js"> </script>
+    <script type = "text/javascript" src = "js/AlgorithmLibrary/KnuthMorrisPratt.js"> </script>
+
 </head>
-<body>
-<div class="container register">
+<body onload="init();" class="VisualizationMainPage">
+<div class="register" >
     <div class="row">
-        <div class="col-md-10 register-right">
+        <div class="col-md-12 register-right">
             <div class="fade show active">
                 <div class="text-center align-content-center">
                     <h3 class="register-heading font-weight-bold">KMP Algorithm</h3>
@@ -27,34 +53,48 @@
                         <hr class="col-md-12 solid">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="string">Search String :</label>
+                                <label for="string">Pattern :</label>
                                 <input type="text" name="search_string" id="string"
                                        class="form-control"
                                        placeholder="Search String *"
-                                       value="potential"/>
+                                       value="abcdef"/>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="text">Searchable Text :</label>
 
-                                <textarea name="text" id="text"
-                                                  class="form-control"
-                                                  rows="12">
-This fact implies that the loop can execute at most 2n times. For, in each iteration, it executes one of the two branches in the loop. The first branch invariably increases i and does not change m, so that the index m + i of the currently scrutinized character of S is increased. The second branch adds i - T[i] to m, and as we have seen, this is always a positive number. Thus the location of the beginning of the current potential match is increased. Now, the loop ends if m + i = n; therefore each branch of the loop can be reached at most k times, since they respectively increase either m + i or m, and m = m + i: if m = n, then certainly m + i = n, so that since it increases by unit increments at most, we must have had m + i = n at some point in the past, and therefore either way we would be done.
-                                        </textarea>
+                                <textarea name="text" id="text" class="form-control" rows="3">aababcabcdabcdeabcdef</textarea>
                             </div>
                         </div>
+                        <hr class="col-md-12 solid">
+                        <div class="col-md-12 text-center" id = "mainContent">
+
+                            <div id = "algoControlSection">
+                                <!-- Table for buttons to control specific animation (insert/find/etc) -->
+                                <!-- (filled in by javascript code specific to the animtion) -->
+                                <table id="AlgorithmSpecificControls"> </table>
+                            </div>
+
+                            <!-- Drawing canvas where all animation is done.  Note:  can be resized in code -->
+
+                            <canvas id="canvas" width="1000" height="500"></canvas>
+
+                            <div id = "generalAnimationControlSection">
+                                <table id="GeneralAnimationControls">  </table>
+                            </div>
+
+                        </div> <!-- mainContent -->
                         <hr class="col-md-12 solid">
                         <div class="col-md-12">
                             <p class="alert alert-warning text-center">
                                Search result : <span id="result-output">Not Set</span>
                             </p>
                         </div>
-                        <hr class="col-md-12 solid">
-                        <div class="col-md-12 text-center">
-                            <span onclick="submitForm()" class="btnRegister" name="submit">Search</span>
+                        <div class="col-md-12 text-center" style="padding-top:25px ">
+                            <span onclick="submitForm()" class="btnRegister">Search</span>
                         </div>
+
                     </div>
                 </form>
             </div>
